@@ -9,7 +9,7 @@ class Tag(Model):
     
 class TaggedItem(Model):
     tag = models.ForeignKey(Tag, on_delete=models.PROTECT, null=False)
-    room = models.ManyToManyField('NotesRoom', related_name='tags', blank=True, null=True)
+    room = models.ManyToManyField('NotesRoom', related_name='tags')
 
 class NotesRoom(Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=False, related_name='rooms')
