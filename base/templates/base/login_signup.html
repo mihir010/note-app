@@ -1,13 +1,21 @@
+{%extends 'main.html'%}
+
+{%block content%}
+
 {%if page == 'signup'%}
 <form action="" method="POST">
     {%csrf_token%}
     {{form}}
     <input type="submit" value="Submit">
+    <p>Already a user? <a href="{%url 'login'%}">Login</a></p>
 </form>
 {%else%}
 <form action="" method="POST">
     {%csrf_token%}
     {{form}}
     <input type="submit" value="Submit">
+    <p>New here? <a href="{%url 'register'%}">Signup</a></p>
 </form>
 {%endif%}
+
+{%endblock%}
