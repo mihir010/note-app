@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import NotesRoom
 
 class RegistrationForm(UserCreationForm):
     class Meta:
@@ -13,9 +14,13 @@ class RegistrationForm(UserCreationForm):
         }
 
 class LoginForm(forms.Form):
-    email = forms.EmailField()
+    username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = User
         fields = ["email", "password"]
         
+class NotesRoomForm(forms.ModelForm):
+    class Meta:
+        model = NotesRoom
+        fields = ["topic"]
