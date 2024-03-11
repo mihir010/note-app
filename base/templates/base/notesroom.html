@@ -1,0 +1,18 @@
+{%extends 'main.html'%}
+
+{%block leftbar%}
+
+<ul>
+    {%for note in notes%}
+    <li>
+        <p>{{note}}</p>
+    </li>
+    {%endfor%}
+</ul>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <input type="text" placeholder="Type" name="body">
+    <input type="submit" value="POST">
+</form>
+{%endblock%}
